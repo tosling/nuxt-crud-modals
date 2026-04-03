@@ -1,8 +1,11 @@
 {
-  "name": "nuxt-module",
+  "name": "nuxt-crud-modals",
   "version": "1.0.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
+  "description": "Nuxt UI compatible module to handle modals for creating, editing and viewing id based records",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tosling/nuxt-crud-modals.git"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -37,7 +40,8 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
-    "@nuxt/kit": "^4.4.2"
+    "@nuxt/kit": "^4.4.2",
+    "defu": "^6.1.6"
   },
   "devDependencies": {
     "@nuxt/devtools": "^3.2.4",
@@ -52,5 +56,10 @@
     "typescript": "~6.0.2",
     "vitest": "^4.1.2",
     "vue-tsc": "^3.2.6"
+  },
+  "peerDependencies": {
+    "@nuxt/ui": "^4.6.0",
+    "nuxt": "^4.4.2",
+    "zod": "^4.0.0"
   }
 }

@@ -1,6 +1,10 @@
 export default defineNuxtConfig({
-  modules: ['my-module'],
+  modules: ['@nuxt/ui', '../src/module'],
   devtools: { enabled: true },
+  css: ['~/assets/css/main.css'],
   compatibilityDate: 'latest',
-  myModule: {},
+
+  modals: {
+    loadingDelay: 700,
+  },
 })
