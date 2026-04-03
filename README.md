@@ -1,3 +1,5 @@
+![GitHub License](https://img.shields.io/github/license/tosling/nuxt-crud-modals)
+
 # Nuxt CRUD Modals
 
 Nuxt CRUD Modals is a lightweight module designed to streamline the creation, viewing and editing of (database) records through modal interfaces in Nuxt applications. It provides a simple and consistent way to handle CRUD-related UI patterns without repetitive boilerplate.
