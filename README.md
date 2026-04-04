@@ -1,10 +1,11 @@
-![GitHub License](https://img.shields.io/github/license/tosling/nuxt-crud-modals)
+[![MIT License][license-src]][license-href]
+[![NuxtModules][modules-src]][modules-href]
 
 # Nuxt CRUD Modals
 
 Nuxt CRUD Modals is a lightweight module designed to streamline the creation, viewing and editing of (database) records through modal interfaces in Nuxt applications. It provides a simple and consistent way to handle CRUD-related UI patterns without repetitive boilerplate.
 
-Built on top of Nuxt UI’s modal system, it leverages UModal and useOverlay under the hood to deliver a flexible and extensible modal experience. The module abstracts common interaction patterns, allowing developers to quickly scaffold modals for different record types while maintaining full control over behavior and presentation.
+Built on top of Nuxt UI’s modal system, it leverages `UModal` and `useOverlay` under the hood to deliver a flexible and extensible modal experience. The module abstracts common interaction patterns, allowing developers to quickly scaffold modals for different record types while maintaining full control over behavior and presentation.
 
 Whether you're building admin panels, dashboards or data-driven applications, Nuxt CRUD Modals module helps you reduce complexity and focus on your business logic by handling the modal lifecycle, state management and integration patterns for you.
 
@@ -12,12 +13,12 @@ Whether you're building admin panels, dashboards or data-driven applications, Nu
 
 - Open, view or edit modals based on record ID
 - Loading overlay for long running data fetching operations
-- `<UFormModal>` component for creating and editing records
+- `<UFormModal>` component for creating and editing data records
 - Coming soon: delete modals
 
 ## Peer Dependencies
 
-Requires Nuxt UI and Zod
+Requires Nuxt UI and Zod 4
 
 ## Quick Setup
 
@@ -113,3 +114,9 @@ npm run test:watch
 # Release new version
 npm run release
 ```
+
+[license-src]: https://img.shields.io/github/license/tosling/nuxt-crud-modals
+[license-href]: ./LICENSE
+
+[modules-src]: https://img.shields.io/badge/Nuxt%20Module-gray?logo=nuxt
+[modules-href]: https://nuxt.com/modules
