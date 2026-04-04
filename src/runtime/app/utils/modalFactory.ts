@@ -4,23 +4,22 @@ import { useOverlay } from '@nuxt/ui/runtime/composables/useOverlay.js'
 import { useToast } from '@nuxt/ui/runtime/composables/useToast.js'
 import { ref, type Component } from 'vue'
 
-type RecordId = string | number
+type BaseRecord = { id: string | number }
 type CrudModalMode = 'create' | 'read' | 'update'
 export type CrudModalResult = { success: boolean }
 
-type CrudModalConfig<TRecord extends { id: RecordId }> = {
+type CrudModalConfig<TRecord extends BaseRecord> = {
   components: Partial<Record<CrudModalMode, Component>>
-  fetchData?: (id: RecordId) => Promise<TRecord>
+  fetchData?: (id: TRecord['id']) => Promise<TRecord>
 }
 
-type CrudModalPayload<
-  TRecord extends { id: RecordId },
+type CrudModalPayload<TRecord extends BaseRecord,
   TMode extends CrudModalMode>
   = TMode extends 'create'
     ? { initialState?: Partial<TRecord> } & { id?: never } // id forbidden
-    : { id: RecordId }
+    : { id: TRecord['id'] }
 
-export function defineCrudModals<TRecord extends { id: RecordId }>(
+export function defineCrudModals<TRecord extends BaseRecord>(
   config: CrudModalConfig<TRecord>,
 ) {
   const overlay = useOverlay()
@@ -39,7 +38,7 @@ export function defineCrudModals<TRecord extends { id: RecordId }>(
     return config.components[mode]
   }
 
-  async function fetchData(id: RecordId) {
+  async function fetchData(id: TRecord['id']) {
     if (!config.fetchData) return
 
     setLoading(true)
@@ -69,7 +68,7 @@ export function defineCrudModals<TRecord extends { id: RecordId }>(
     const component = resolveComponent(mode)
 
     if (mode !== 'create') {
-      const { id } = payload as { id: RecordId }
+      const { id } = payload as { id: TRecord['id'] }
       if (!id) throw new Error(`Mode '${mode}' requires an id`)
 
       await fetchData(id)
@@ -86,11 +85,11 @@ export function defineCrudModals<TRecord extends { id: RecordId }>(
     return promise
   }
 
-  function openToRead(id: RecordId) {
+  function openToRead(id: TRecord['id']) {
     return open('read', { id })
   }
 
-  function openToUpdate(id: RecordId) {
+  function openToUpdate(id: TRecord['id']) {
     return open('update', { id })
   }
 
