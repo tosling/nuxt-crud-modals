@@ -57,7 +57,7 @@ const open = defineModel<boolean>('open')
 
 const form = useTemplateRef('form')
 
-const state = reactive<T>({ ...props.initialState })
+const state = reactive({ ...props.initialState })
 
 function setError(message: string) {
   error.value = message
